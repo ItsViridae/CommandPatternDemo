@@ -8,16 +8,16 @@ namespace CommandPatternDemo.Commands
 {
     public class LightBrightenCommand : ICommand
     {
+        private readonly Light _light;
 
+        public LightBrightenCommand(Light light)
+        {
+            _light = light;
+        }
         
         public void Execute()
         {
-           Console.WriteLine("Brighten");
-        }
-
-        public void Unexecute()
-        {
-           Console.WriteLine("Un-Brighten");
+           _light.IncreaseBrightness();
         }
     }
 }

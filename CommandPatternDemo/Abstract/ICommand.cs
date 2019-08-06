@@ -7,6 +7,5 @@ namespace CommandPatternDemo.Abstract
     public interface ICommand
     {
         void Execute();
-        void Unexecute();
     }
 }

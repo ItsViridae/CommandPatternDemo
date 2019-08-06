@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Text;
 using CommandPatternDemo.Abstract;
 
-namespace CommandPatternDemo.Commands
+namespace CommandPatternDemo
 {
-    public class LightDimCommand : ICommand
+    public class LightOnOrOffCommand : ICommand
     {
         private readonly Light _light;
 
-        public LightDimCommand(Light light)
+        public LightOnOrOffCommand(Light light)
         {
             _light = light;
         }
+
         public void Execute()
         {
-            _light.DecreaseBrightness();
+            _light.OnOrOff();
         }
-
     }
 }

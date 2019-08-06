@@ -9,10 +9,7 @@ namespace CommandPatternDemo.Commands
     {
         void ICommand.Execute()
         {
-        }
 
-        void ICommand.Unexecute()
-        {
         }
     }
 }

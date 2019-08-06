@@ -14,18 +14,17 @@ namespace CommandPatternDemo
         public static void TestControlsForLights()
         {
             var light = new Light();
+            var remote = new Remote();
+            remote.SetCommand(new LightOnOrOffCommand(light));
+            remote.PressButton();
+            Console.WriteLine($"Brightness is: {light.Brightness}");
+            remote.SetCommand(new LightDimCommand(light));
+            remote.PressButton();
+            Console.WriteLine($"Brightness is: {light.Brightness}");
+            remote.SetCommand(new LightOnOrOffCommand(light));
+            remote.PressButton();
+            Console.WriteLine($"Brightness is: {light.Brightness}");
 
-            var lightOn = new LightOnCommand(light);
-            Console.Write($"Presses the On Button: ");
-            lightOn.Execute();
-            Console.Write("Undo: ");
-            lightOn.Unexecute();
-
-            var lightOff = new LightOffCommand(light);
-            Console.Write($"Presses the Off Button: ");
-            lightOff.Execute();
-            Console.Write("Undo: ");
-            lightOff.Unexecute();
         }
     }
 }

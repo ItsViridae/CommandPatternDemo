@@ -7,33 +7,37 @@ namespace CommandPatternDemo
 {
     public class Light
     {
-        public Light()
+        public int Brightness { get; set; }
+        public bool IsOn { get; set; }
+        public void OnOrOff()
         {
-            var level = 10;
-        }
-        public void On()
-        {
-            Console.WriteLine("Light Is On");
-        }
-        public void Off()
-        {
-            Console.WriteLine("Light Is Off");
+            if (!IsOn)
+            {
+                Brightness = 10;
+                IsOn = true;
+                Console.WriteLine("Light Is On");
+            }
+            else
+            {
+                Brightness = 0;
+                Console.WriteLine("Light Is Off");
+            }
         }
 
-        public void DecreaseBrightness(int level)
+        public void DecreaseBrightness()
         {
-            if (level != 0)
+            if (Brightness != 0)
             {
-                level--;
+                Brightness--;
             }
             else Console.WriteLine("Light is Off, 0 PowerLevel");
         }
 
-        public void IncreaseBrightness(int level)
+        public void IncreaseBrightness()
         {
-            if (level < 10)
+            if (Brightness < 10)
             {
-                level++;
+                Brightness++;
             }
         }
     }
